@@ -10,7 +10,7 @@ class Header extends React.Component {
 
 const styles = {
     header : {
-        color: "blue";
+        color: "black"
     }
 };
 
