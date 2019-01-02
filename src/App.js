@@ -6,8 +6,10 @@ import SubmitButton from './components/SubmitButton';
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <Header />
+      <div class="container">
+        <div class="row" md={{offset: 3}}>
+          <Header />
+        </div>
         <div class="row">
           <div class="col-sm">
             <InputBox />
