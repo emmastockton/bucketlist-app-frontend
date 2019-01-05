@@ -9,7 +9,7 @@ class InputBox extends React.Component {
 }
 
 const styles = {
-    InputBox : {
+    inputBox : {
 
     }
 };
