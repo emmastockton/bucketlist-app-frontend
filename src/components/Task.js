@@ -6,13 +6,13 @@ class Task extends React.Component {
         return (
             <div className="row">
                 <div className="col">
-                    Do Something
+                    {this.props.nameOfTask}
                 </div>
                 <div className="col">
-                    <input type="button" value="delete" />
+                    <input type="button" value="Delete" />
                 </div>
                 <div className="col">
-                    <input type="button" value="done" />
+                    <input type="button" value="Done" />
                 </div>
             </div>
         );
