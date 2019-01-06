@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import InputBox from './components/InputBox';
-import SubmitButton from './components/SubmitButton';
 import TaskList from './components/TaskList';
 import TaskCounter from './components/TaskCounter';
 
@@ -15,9 +14,6 @@ class App extends Component {
         <div className="row justify-content-center no-gutters">
           <div className="col-4">
             <InputBox />
-          </div>
-          <div className="col-4">
-            <SubmitButton />
           </div>
         </div>
         <div className="row">
