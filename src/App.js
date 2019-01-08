@@ -5,6 +5,15 @@ import TaskList from './components/TaskList';
 import TaskCounter from './components/TaskCounter';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      tasks: []
+    }
+  }
+
   render() {
     return (
       <div className="container">
@@ -19,7 +28,7 @@ class App extends Component {
         <div className="row">
           <TaskCounter />
         </div>
-          <TaskList />
+          <TaskList tasks={this.state.tasks} />
       </div>
     );
   }
