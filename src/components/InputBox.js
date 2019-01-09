@@ -6,7 +6,7 @@ class InputBox extends React.Component {
         super(props);
 
         this.state = {
-            entryDescription: ""
+            entryName: ""
         };
 
         this.onSubmitClicked = this.onSubmitClicked.bind(this);
@@ -14,22 +14,33 @@ class InputBox extends React.Component {
     }
 
     onSubmitClicked () {
-        alert(this.state.entryDescription);
+
+        const entryToBeAdded = {
+            id: (Math.random() *100),
+            description: this.state.entryName,
+            completed: false
+        };
+
+        this.props.onSumbitEntryHandler(entryToBeAdded);
+
+        this.setState({
+            entryName: ""
+        });
     }
 
     onEntryFieldUpdated (event) {
-        const entryName = event.target.value;
+        const description = event.target.value;
 
         this.setState({
-            entryDescription: entryName
-        })
+            entryName: description
+        });
     }
 
     render() {
         return (
             <div className="row">
                 <div className="col">
-                    <input style={styles.InputBox} type="text" class="form-control" placeholder="I really want to..." value={this.state.entryDescription} onChange={this.onEntryFieldUpdated} />
+                    <input style={styles.InputBox} type="text" class="form-control" placeholder="I really want to..." value={this.state.entryName} onChange={this.onEntryFieldUpdated} />
                 </div>          
                 <div className="col">
                     <button type="button" class="btn btn-info" onClick={this.onSubmitClicked}>Add</button>

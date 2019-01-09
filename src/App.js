@@ -12,6 +12,20 @@ class App extends Component {
     this.state = {
       tasks: []
     }
+
+    this.addEntry = this.addEntry.bind(this);
+
+  }
+
+  addEntry(task) {
+
+    let currentList = this.state.tasks;
+
+    currentList.push(task);
+
+    this.setState({
+      tasks: currentList
+    });
   }
 
   render() {
@@ -22,7 +36,7 @@ class App extends Component {
         </div>
         <div className="row justify-content-center no-gutters">
           <div className="col-4">
-            <InputBox />
+            <InputBox onSumbitEntryHandler={this.addEntry}/>
           </div>
         </div>
         <div className="row">
