@@ -38,9 +38,9 @@ class InputBox extends React.Component {
 
     render() {
         return (
-            <div className="row">
+            <div className="row" style={styles.InputBox}>
                 <div className="col">
-                    <input style={styles.InputBox} type="text" class="form-control" placeholder="I really want to..." value={this.state.entryName} onChange={this.onEntryFieldUpdated} />
+                    <input type="text" class="form-control" placeholder="I really want to..." value={this.state.entryName} onChange={this.onEntryFieldUpdated} />
                 </div>          
                 <div className="col">
                     <button type="button" class="btn btn-info" onClick={this.onSubmitClicked}>Add</button>
