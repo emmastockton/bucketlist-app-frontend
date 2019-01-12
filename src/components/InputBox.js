@@ -53,7 +53,7 @@ class InputBox extends React.Component {
 
 const styles = {
     inputBox : {
-
+        
     }
 };
 

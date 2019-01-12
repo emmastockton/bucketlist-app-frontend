@@ -40,7 +40,7 @@ class App extends Component {
           </div>
         </div>
         <div className="row">
-          <TaskCounter />
+          <TaskCounter tasks={this.state.tasks} />
         </div>
           <TaskList tasks={this.state.tasks} />
       </div>
