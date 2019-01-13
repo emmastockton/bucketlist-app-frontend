@@ -22,7 +22,7 @@ class Task extends React.Component {
                     <input className="btn btn-success" type="button" value="Done" />
                 </div>
                 <div className="col">
-                    <input className="deleteButton btn btn-danger" type="button" value="Delete" />
+                    <input className="deleteButton btn btn-danger" type="button" value="Delete" onClick={this.onDeleteClicked} />
                 </div>
             </div>
         );

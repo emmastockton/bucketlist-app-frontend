@@ -28,6 +28,15 @@ class App extends Component {
     });
   }
 
+  deleteEntry(task) {
+
+    let taskPosition = this.state.tasks.indexOf(task);
+
+    let currentList = this.state.tasks;
+
+    currentList.splice(taskPosition, 1);
+  }
+
   render() {
     return (
       <div className="container">
