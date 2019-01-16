@@ -9,7 +9,8 @@ class Task extends React.Component {
     }
 
     onDeleteClicked () {
-        alert ("I'm removing task " + this.props.nameOfTask);
+
+        this.props.deleteEntryHandler(this.props.idOfEntry);
     }
 
     render() {
@@ -19,10 +20,19 @@ class Task extends React.Component {
                     {this.props.nameOfTask}
                 </div>
                 <div className="col">
-                    <input className="btn btn-success" type="button" value="Done" />
+                    <input 
+                        className="btn btn-success" 
+                        type="button" value="Done" 
+                    />
                 </div>
                 <div className="col">
-                    <input className="deleteButton btn btn-danger" type="button" value="Delete" onClick={this.onDeleteClicked} />
+                    <input 
+                        className="deleteButton btn btn-danger" 
+                        type="button" 
+                        value="Delete" 
+                        onClick={this.onDeleteClicked} 
+                        deleteEntryHandler={this.props.deleteEntryHandler} 
+                    />
                 </div>
             </div>
         );

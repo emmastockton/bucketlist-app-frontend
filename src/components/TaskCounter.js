@@ -5,7 +5,11 @@ class TaskCounter extends React.Component {
     render() {
 
         return (
-                <div className="containter" style={styles.taskCounter} class="taskCounter">
+                <div 
+                    className="containter" 
+                    style={styles.taskCounter} 
+                    class="taskCounter"
+                >
                     <div className="row">
                     <div className="col-8">
                         Task Counter

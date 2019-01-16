@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     this.addEntry = this.addEntry.bind(this);
-
+    this.deleteEntry = this.deleteEntry.bind(this);
   }
 
   addEntry(task) {
@@ -28,13 +28,15 @@ class App extends Component {
     });
   }
 
-  deleteEntry(task) {
+  deleteEntry(id) {
 
-    let taskPosition = this.state.tasks.indexOf(task);
+    let taskPosition = this.state.tasks.id.indexOf(id);
 
     let currentList = this.state.tasks;
 
     currentList.splice(taskPosition, 1);
+
+    this.setState({tasks: currentList});
   }
 
   render() {
@@ -51,7 +53,7 @@ class App extends Component {
         <div className="row">
           <TaskCounter tasks={this.state.tasks} />
         </div>
-          <TaskList tasks={this.state.tasks} />
+          <TaskList tasks={this.state.tasks} deleteEntryHandler={this.deleteEntry} />
       </div>
     );
   }
