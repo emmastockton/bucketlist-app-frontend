@@ -28,9 +28,9 @@ class App extends Component {
     });
   }
 
-  deleteEntry(id) {
+  deleteEntry(identifier) {
 
-    let taskPosition = this.state.tasks.id.indexOf(id);
+    let taskPosition = this.state.tasks.id.indexOf(identifier);
 
     let currentList = this.state.tasks;
 

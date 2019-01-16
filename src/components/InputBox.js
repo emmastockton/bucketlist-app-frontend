@@ -48,11 +48,12 @@ class InputBox extends React.Component {
                         onChange={this.onEntryFieldUpdated} 
                     />
                 </div>          
-                <div className="col">
+                <div>
                     <button 
                         type="button" 
-                        class="btn btn-info" 
+                        className="btn btn-info" 
                         onClick={this.onSubmitClicked}
+                        style={styles.addButton}
                     >
                         Add
                     </button>
@@ -64,8 +65,11 @@ class InputBox extends React.Component {
 }
 
 const styles = {
-    inputBox : {
-        
+    addButton : {
+        backgroundColor: "white",
+        color: "black",
+        border: "2px solid #d35400",
+        transitionDuration: "0.4s"
     }
 };
 

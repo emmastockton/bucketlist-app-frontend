@@ -8,7 +8,6 @@ class TaskCounter extends React.Component {
                 <div 
                     className="containter" 
                     style={styles.taskCounter} 
-                    class="taskCounter"
                 >
                     <div className="row">
                     <div className="col-8">
