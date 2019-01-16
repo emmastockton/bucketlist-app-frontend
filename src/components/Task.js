@@ -9,7 +9,7 @@ class Task extends React.Component {
     }
 
     onDeleteClicked () {
-        
+        alert ("I'm removing task " + this.props.nameOfTask);
     }
 
     render() {
