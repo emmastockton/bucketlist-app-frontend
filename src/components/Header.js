@@ -11,7 +11,8 @@ class Header extends React.Component {
 const styles = {
     header : {
         color: "black",
-        margin: "auto"
+        margin: "auto",
+        padding: "20px"
     }
 };
 

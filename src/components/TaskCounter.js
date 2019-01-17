@@ -28,7 +28,8 @@ class TaskCounter extends React.Component {
 const styles = {
     taskCounter : {
         border: "solid",
-        margin: "auto"
+        margin: "auto",
+        padding: "20px"
     }
 };
 

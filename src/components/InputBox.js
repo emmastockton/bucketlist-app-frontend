@@ -65,11 +65,14 @@ class InputBox extends React.Component {
 }
 
 const styles = {
+    InputBox: {
+        padding: "20px"
+    },
+
     addButton : {
         backgroundColor: "white",
         color: "black",
         border: "2px solid #d35400",
-        transitionDuration: "0.4s"
     }
 };
 
