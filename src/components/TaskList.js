@@ -13,6 +13,7 @@ class TaskList extends React.Component {
                         nameOfTask={task.description} 
                         key={i} 
                         idOfEntry={task.id} 
+                        deleteEntryHandler = {this.props.deleteEntryHandler}
                     />
                 )
             }

@@ -30,13 +30,11 @@ class App extends Component {
 
   deleteEntry(identifier) {
 
-    let taskPosition = this.state.tasks.id.indexOf(identifier);
-
     let currentList = this.state.tasks;
 
-    currentList.splice(taskPosition, 1);
+    let filteredTasks = currentList.filter((task) => task.id !== identifier);
 
-    this.setState({tasks: currentList});
+    this.setState({tasks: filteredTasks});
   }
 
   render() {

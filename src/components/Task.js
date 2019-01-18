@@ -31,7 +31,6 @@ class Task extends React.Component {
                         type="button" 
                         value="Delete" 
                         onClick={this.onDeleteClicked} 
-                        deleteEntryHandler={this.props.deleteEntryHandler} 
                     />
                 </div>
             </div>
