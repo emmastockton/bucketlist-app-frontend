@@ -6,11 +6,16 @@ class Task extends React.Component {
         super(props);
 
         this.onDeleteClicked = this.onDeleteClicked.bind(this);
+        this.onDoneClicked = this.onDoneClicked.bind(this);
     }
 
     onDeleteClicked () {
 
         this.props.deleteEntryHandler(this.props.idOfEntry);
+    }
+
+    onDoneClicked () {
+
     }
 
     render() {
@@ -22,7 +27,9 @@ class Task extends React.Component {
                 <div className="col">
                     <input 
                         className="btn btn-success" 
-                        type="button" value="Done" 
+                        type="button" 
+                        value="Done" 
+                        onClick={this.onDoneClicked}
                     />
                 </div>
                 <div className="col">

@@ -9,15 +9,25 @@ class TaskCounter extends React.Component {
                     className="containter" 
                     style={styles.taskCounter} 
                 >
-                    <div className="row">
-                    <div className="col-8">
-                        Task Counter
-                    </div> 
+                <div className="row">
                 <div className="col-2">
                     {
                         this.props.tasks.length
                     }
                 </div>
+                    <div className="col-9">
+                        left to do!
+                    </div> 
+                </div>
+                <div className="row">
+                <div className="col-2">
+                    
+                    "amount clicked as done"
+                    
+                </div>
+                    <div className="col-9">
+                        already done!
+                    </div> 
                 </div>
                 </div>
                 );
