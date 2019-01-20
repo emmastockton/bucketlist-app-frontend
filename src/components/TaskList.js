@@ -14,6 +14,7 @@ class TaskList extends React.Component {
                         key={i} 
                         idOfEntry={task.id} 
                         deleteEntryHandler = {this.props.deleteEntryHandler}
+                        doneEntryHandler = {this.props.doneEntryHandler}
                     />
                 )
             }

@@ -30,10 +30,20 @@ class App extends Component {
     });
   }
 
-  markAsDone(task) {
+  markAsDone(identifier, task) {
     //This will remove entry from tasks array and add them to doneTasks array
 
     let currentList = this.state.tasks;
+
+    let doneList = this.state.doneTasks;
+
+    let filteredTasks = currentList.filter((task) => task.id !== identifier);
+
+    this.setState({tasks: filteredTasks});
+
+    doneList.push(task);
+
+    this.setState({doneTasks: doneList});
   }
 
   deleteEntry(identifier) {
@@ -59,7 +69,7 @@ class App extends Component {
         <div className="row">
           <TaskCounter tasks={this.state.tasks} doneTasks={this.state.doneTasks} />
         </div>
-          <TaskList tasks={this.state.tasks} deleteEntryHandler={this.deleteEntry} />
+          <TaskList tasks={this.state.tasks} doneEntryHandler={this.markAsDone} deleteEntryHandler={this.deleteEntry} />
       </div>
     );
   }

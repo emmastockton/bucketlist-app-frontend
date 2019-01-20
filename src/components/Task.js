@@ -16,6 +16,7 @@ class Task extends React.Component {
 
     onDoneClicked () {
         
+        this.props.doneEntryHandler(this.props.idOfEntry);
     }
 
     render() {
