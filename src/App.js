@@ -43,7 +43,9 @@ class App extends Component {
 
     doneList.push(task);
 
-    this.setState({doneTasks: doneList});
+    this.setState({
+      doneTasks: doneList
+    });
   }
 
   deleteEntry(identifier) {
@@ -69,7 +71,7 @@ class App extends Component {
         <div className="row">
           <TaskCounter tasks={this.state.tasks} doneTasks={this.state.doneTasks} />
         </div>
-          <TaskList tasks={this.state.tasks} doneEntryHandler={this.markAsDone} deleteEntryHandler={this.deleteEntry} />
+          <TaskList tasks={this.state.tasks} doneTasks={this.state.doneTasks} doneEntryHandler={this.markAsDone} deleteEntryHandler={this.deleteEntry} />
       </div>
     );
   }

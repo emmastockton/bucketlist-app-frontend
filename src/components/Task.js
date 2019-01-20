@@ -21,25 +21,27 @@ class Task extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col">
-                    {this.props.nameOfTask}
-                </div>
-                <div className="col">
-                    <input 
-                        className="btn btn-success" 
-                        type="button" 
-                        value="Done" 
-                        onClick={this.onDoneClicked}
-                    />
-                </div>
-                <div className="col">
-                    <input 
-                        className="deleteButton btn btn-danger" 
-                        type="button" 
-                        value="Delete" 
-                        onClick={this.onDeleteClicked} 
-                    />
+            <div className="containter">
+                <div className="row">
+                    <div className="col">
+                        {this.props.nameOfTask}
+                    </div>
+                    <div className="col">
+                        <input 
+                            className="btn btn-success" 
+                            type="button" 
+                            value="Done" 
+                            onClick={this.onDoneClicked}
+                        />
+                    </div>
+                    <div className="col">
+                        <input 
+                            className="deleteButton btn btn-danger" 
+                            type="button" 
+                            value="Delete" 
+                            onClick={this.onDeleteClicked} 
+                        />
+                    </div>
                 </div>
             </div>
         );
