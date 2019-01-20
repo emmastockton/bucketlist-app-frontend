@@ -15,7 +15,7 @@ class Task extends React.Component {
     }
 
     onDoneClicked () {
-
+        
     }
 
     render() {

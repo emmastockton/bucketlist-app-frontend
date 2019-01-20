@@ -10,11 +10,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      tasks: []
+      tasks: [],
+      doneTasks: []
     }
 
     this.addEntry = this.addEntry.bind(this);
     this.deleteEntry = this.deleteEntry.bind(this);
+    this.markAsDone = this.markAsDone.bind(this);
   }
 
   addEntry(task) {
@@ -26,6 +28,12 @@ class App extends Component {
     this.setState({
       tasks: currentList
     });
+  }
+
+  markAsDone(task) {
+    //This will remove entry from tasks array and add them to doneTasks array
+
+    let currentList = this.state.tasks;
   }
 
   deleteEntry(identifier) {
@@ -49,7 +57,7 @@ class App extends Component {
           </div>
         </div>
         <div className="row">
-          <TaskCounter tasks={this.state.tasks} />
+          <TaskCounter tasks={this.state.tasks} doneTasks={this.state.doneTasks} />
         </div>
           <TaskList tasks={this.state.tasks} deleteEntryHandler={this.deleteEntry} />
       </div>

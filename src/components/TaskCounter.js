@@ -21,9 +21,9 @@ class TaskCounter extends React.Component {
                 </div>
                 <div className="row">
                 <div className="col-2">
-                    
-                    "amount clicked as done"
-                    
+                    {
+                        this.props.doneTasks.length
+                    }                 
                 </div>
                     <div className="col-9">
                         already done!
