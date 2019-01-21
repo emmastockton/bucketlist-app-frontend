@@ -30,8 +30,7 @@ class App extends Component {
     });
   }
 
-  markAsDone(task, identifier) {
-    //This will remove entry from tasks array and add them to doneTasks array
+  markAsDone(identifier) {
 
     let currentList = this.state.tasks;
 
@@ -43,7 +42,9 @@ class App extends Component {
       tasks: filteredTasks
     });
 
-    doneList.push(task);
+    let filteredDoneTasks = currentList.filter((task) => task.id === identifier);
+
+    doneList.push(filteredDoneTasks);
 
     this.setState({
       doneTasks: doneList
