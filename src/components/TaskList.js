@@ -1,6 +1,5 @@
 import React from 'react';
 import Task from './Task';
-import DoneTask from './DoneTask';
 
 class TaskList extends React.Component {
 
@@ -17,17 +16,6 @@ class TaskList extends React.Component {
                         idOfEntry={task.id} 
                         deleteEntryHandler = {this.props.deleteEntryHandler}
                         doneEntryHandler = {this.props.doneEntryHandler}
-                    />
-                )
-            }
-            </div>
-            <div>
-            {
-                this.props.doneTasks.map((task, i) =>
-                    <DoneTask
-                        nameOfDoneTask={task.description}
-                        key={i}
-                        idOfEntry={task.id}
                     />
                 )
             }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import InputBox from './components/InputBox';
 import TaskList from './components/TaskList';
+import DoneTaskList from './components/DoneTaskList';
 import TaskCounter from './components/TaskCounter';
 
 class App extends Component {
@@ -74,7 +75,12 @@ class App extends Component {
         <div className="row">
           <TaskCounter tasks={this.state.tasks} doneTasks={this.state.doneTasks} />
         </div>
-          <TaskList tasks={this.state.tasks} doneTasks={this.state.doneTasks} doneEntryHandler={this.markAsDone} deleteEntryHandler={this.deleteEntry} />
+        <div className="row">
+          <TaskList tasks={this.state.tasks} doneEntryHandler={this.markAsDone} deleteEntryHandler={this.deleteEntry} />
+        </div>
+        <div className="row">
+          <DoneTaskList doneTasks={this.state.doneTasks} />
+        </div>
       </div>
     );
   }
