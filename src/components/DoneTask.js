@@ -6,7 +6,7 @@ class DoneTask extends React.Component {
         return (
             <div className="containter">
                 <div className="row">
-                    <div className="col">
+                    <div className="col" style={styles.DoneTask}>
                         {this.props.nameOfDoneTask}
                     </div>
                 </div>
@@ -16,6 +16,10 @@ class DoneTask extends React.Component {
 
 }
 
-
+const styles = {
+    DoneTask: {
+        textDecoration: "line-through"
+    }
+}
 
 export default DoneTask;
