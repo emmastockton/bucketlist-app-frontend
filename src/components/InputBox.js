@@ -11,6 +11,7 @@ class InputBox extends React.Component {
 
         this.onSubmitClicked = this.onSubmitClicked.bind(this);
         this.onEntryFieldUpdated = this.onEntryFieldUpdated.bind(this);
+        this.onEnterHit = this.onEnterHit.bind(this);
     }
 
     onSubmitClicked () {
@@ -36,11 +37,25 @@ class InputBox extends React.Component {
         });
     }
 
+    onEnterHit (event) {
+       //need to fix this one
+        var input = document.getElementById("inputBox");
+
+        input.addEventListener("keyup", function(event) {
+            event.preventDefault();
+
+            if (event.keyCode === 13) {
+                document.getElementById("inputBox").click();
+            }
+        });
+    }
+
     render() {
         return (
             <div className="row" style={styles.InputBox}>
                 <div className="col">
                     <input 
+                        id="inputBox"
                         type="text" 
                         class="form-control" 
                         placeholder="I really want to..." 
@@ -53,6 +68,7 @@ class InputBox extends React.Component {
                         type="button" 
                         className="btn btn-info" 
                         onClick={this.onSubmitClicked}
+                        onKeyPress={this.onEnterHit}
                         style={styles.addButton}
                     >
                         Add

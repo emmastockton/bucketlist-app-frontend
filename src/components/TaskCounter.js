@@ -10,7 +10,7 @@ class TaskCounter extends React.Component {
                     style={styles.taskCounter} 
                 >
                 <div className="row">
-                <div className="col-2">
+                <div className="col-2" style={styles.amountToDo} >
                     {
                         this.props.tasks.length
                     }
@@ -20,7 +20,7 @@ class TaskCounter extends React.Component {
                     </div> 
                 </div>
                 <div className="row">
-                <div className="col-2">
+                <div className="col-2" style={styles.amountDone}>
                     {
                         this.props.doneTasks.length
                     }                 
@@ -39,7 +39,18 @@ const styles = {
     taskCounter : {
         border: "solid",
         margin: "auto",
-        padding: "20px"
+        marginTop: "20px",
+        padding: "10px",
+        textAlign: "center",
+        backgroundColor: "#e9d486"
+    },
+    amountToDo : {
+        fontSize: "30px",
+        color: "#ef5811"
+    },
+    amountDone: {
+        fontSize: "30px",
+        color: "#28dc59"
     }
 };
 

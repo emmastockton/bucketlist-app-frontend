@@ -45,7 +45,7 @@ class App extends Component {
 
     let filteredDoneTasks = currentList.filter((task) => task.id === identifier);
 
-    doneList.push(filteredDoneTasks);
+    doneList.push(filteredDoneTasks[0]);
 
     this.setState({
       doneTasks: doneList
