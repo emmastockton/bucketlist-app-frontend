@@ -6,7 +6,7 @@ class TaskCounter extends React.Component {
 
         return (
                 <div 
-                    className="containter" 
+                    className="containter align-middle" 
                     style={styles.taskCounter} 
                 >
                 <div className="row">

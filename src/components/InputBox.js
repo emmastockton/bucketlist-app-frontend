@@ -12,6 +12,7 @@ class InputBox extends React.Component {
         this.onSubmitClicked = this.onSubmitClicked.bind(this);
         this.onEntryFieldUpdated = this.onEntryFieldUpdated.bind(this);
         this.onEnterHit = this.onEnterHit.bind(this);
+        this.enterRef = React.createRef();
     }
 
     onSubmitClicked () {
@@ -37,17 +38,13 @@ class InputBox extends React.Component {
         });
     }
 
-    onEnterHit (event) {
-       //need to fix this one
-        var input = document.getElementById("inputBox");
+    onEnterHit(event) {
+       
+        let code = event.which;
 
-        input.addEventListener("keyup", function(event) {
-            event.preventDefault();
-
-            if (event.keyCode === 13) {
-                document.getElementById("inputBox").click();
-            }
-        });
+        if (code === 13) {
+           this.enterRef.current.click();
+        };
     }
 
     render() {
@@ -55,12 +52,12 @@ class InputBox extends React.Component {
             <div className="row" style={styles.InputBox}>
                 <div className="col">
                     <input 
-                        id="inputBox"
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         placeholder="I really want to..." 
                         value={this.state.entryName} 
-                        onChange={this.onEntryFieldUpdated} 
+                        onChange={this.onEntryFieldUpdated}
+                        onKeyPress={this.onEnterHit.bind(this)} 
                     />
                 </div>          
                 <div>
@@ -68,8 +65,8 @@ class InputBox extends React.Component {
                         type="button" 
                         className="btn btn-info" 
                         onClick={this.onSubmitClicked}
-                        onKeyPress={this.onEnterHit}
                         style={styles.addButton}
+                        ref={this.enterRef}
                     >
                         Add
                     </button>

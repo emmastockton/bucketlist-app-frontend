@@ -12,5 +12,5 @@ This will install the required packages:
 
 **```npm start```**
 
-This will launch the bookshop on your local machine so you can see it in your browser.
+This will launch the app on your local machine so you can see it in your browser.
 
