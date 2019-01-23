@@ -18,6 +18,8 @@ class App extends Component {
     this.addEntry = this.addEntry.bind(this);
     this.deleteEntry = this.deleteEntry.bind(this);
     this.markAsDone = this.markAsDone.bind(this);
+    this.deleteCompletedEntry = this.deleteCompletedEntry.bind(this);
+
   }
 
   addEntry(task) {
@@ -61,6 +63,15 @@ class App extends Component {
     this.setState({tasks: filteredTasks});
   }
 
+  deleteCompletedEntry(identifier) {
+
+    let currentDoneList = this.state.doneTasks;
+
+    let filteredDoneTasks = currentDoneList.filter((task) => task.id !== identifier);
+
+    this.setState({doneTasks: filteredDoneTasks});
+  }
+
   render() {
     return (
       <div className="container">
@@ -79,7 +90,7 @@ class App extends Component {
           <TaskList tasks={this.state.tasks} doneEntryHandler={this.markAsDone} deleteEntryHandler={this.deleteEntry} />
         </div>
         <div className="row">
-          <DoneTaskList doneTasks={this.state.doneTasks} />
+          <DoneTaskList doneTasks={this.state.doneTasks} deleteCompletedEntryHandler={this.deleteCompletedEntry} />
         </div>
       </div>
     );

@@ -14,6 +14,7 @@ class DoneTaskList extends React.Component {
                         nameOfDoneTask={doneTask.description}
                         key={i}
                         idOfEntry={doneTask.id}
+                        deleteCompletedEntryHandler = {this.props.deleteCompletedEntryHandler}
                     />
                 )
             }

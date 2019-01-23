@@ -22,11 +22,11 @@ class Task extends React.Component {
     render() {
         return (
             <div className="containter">
-                <div className="row">
-                    <div className="col">
+                <div className="row justify-content-md-center">
+                    <div className="col-2 text-right">
                         {this.props.nameOfTask}
                     </div>
-                    <div className="col">
+                    <div className="col-2 text-right">
                         <input 
                             className="btn btn-success" 
                             type="button" 
@@ -34,7 +34,7 @@ class Task extends React.Component {
                             onClick={this.onDoneClicked}
                         />
                     </div>
-                    <div className="col">
+                    <div className="col-2 text-left">
                         <input 
                             className="deleteButton btn btn-danger" 
                             type="button" 
@@ -43,12 +43,22 @@ class Task extends React.Component {
                         />
                     </div>
                 </div>
+                <div style={styles.dottyBorder}>
+                </div>
             </div>
         );
     }
 
 }
 
-
+const styles = {
+    dottyBorder: {
+        border: "1px dashed #000",
+        width: "50%",
+        margin: "auto",
+        marginTop: "5%",
+        marginBottom: "5%"
+    }
+};
 
 export default Task;

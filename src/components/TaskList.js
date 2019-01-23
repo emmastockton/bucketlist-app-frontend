@@ -6,7 +6,7 @@ class TaskList extends React.Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="container" style={styles.taskList}>
             <div>
             {
                 this.props.tasks.map((task, i) => 
@@ -24,6 +24,13 @@ class TaskList extends React.Component {
         );
     }
 
+}
+
+const styles = {
+    taskList: {
+        marginTop: "20px",
+        marginBottom: "20px"
+    }
 }
 
 
