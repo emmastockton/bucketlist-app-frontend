@@ -11,9 +11,9 @@ class DoneTaskList extends React.Component {
             {
                 this.props.doneTasks.map((doneTask, i) =>
                     <DoneTask
-                        nameOfDoneTask={doneTask.description}
+                        nameOfDoneTask={doneTask.Description}
                         key={i}
-                        idOfEntry={doneTask.id}
+                        idOfEntry={doneTask.TaskID}
                         deleteCompletedEntryHandler = {this.props.deleteCompletedEntryHandler}
                     />
                 )

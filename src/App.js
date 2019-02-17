@@ -27,6 +27,9 @@ class App extends Component {
 
     const tasks = await TasksService.getTasks();
     this.setState({tasks: tasks});
+
+    const doneTasks = await TasksService.getDoneTasks();
+    this.setState({doneTasks: doneTasks});
   }
 
   async addEntry(task) {
@@ -44,7 +47,9 @@ class App extends Component {
     });
   }
 
-  markAsDone(identifier) {
+  async markAsDone(identifier) {
+
+    const response = await TasksService.completeTask(identifier);
 
     let currentList = this.state.tasks;
 
@@ -72,8 +77,6 @@ class App extends Component {
     let currentList = this.state.tasks;
 
     let filteredTasks = currentList.filter((task) => task.TaskID !== identifier);
-
-    console.log(filteredTasks);
 
     this.setState({
       tasks: filteredTasks
