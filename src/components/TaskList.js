@@ -11,9 +11,9 @@ class TaskList extends React.Component {
             {
                 this.props.tasks.map((task, i) => 
                     <Task 
-                        nameOfTask={task.description} 
+                        nameOfTask={task.Description} 
                         key={i} 
-                        idOfEntry={task.id} 
+                        idOfEntry={task.TaskID} 
                         deleteEntryHandler = {this.props.deleteEntryHandler}
                         doneEntryHandler = {this.props.doneEntryHandler}
                     />

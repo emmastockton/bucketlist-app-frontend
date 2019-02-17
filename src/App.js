@@ -4,6 +4,7 @@ import InputBox from './components/InputBox';
 import TaskList from './components/TaskList';
 import DoneTaskList from './components/DoneTaskList';
 import TaskCounter from './components/TaskCounter';
+import TasksService from './service/tasks';
 
 class App extends Component {
 
@@ -22,7 +23,17 @@ class App extends Component {
 
   }
 
-  addEntry(task) {
+  async componentDidMount() {
+
+    const tasks = await TasksService.getTasks();
+    this.setState({tasks: tasks});
+  }
+
+  async addEntry(task) {
+
+    const response = await TasksService.saveTask(task);
+
+    task.TaskID = response.insertId;
 
     let currentList = this.state.tasks;
 
@@ -39,13 +50,13 @@ class App extends Component {
 
     let doneList = this.state.doneTasks;
 
-    let filteredTasks = currentList.filter((task) => task.id !== identifier);
+    let filteredTasks = currentList.filter((task) => task.TaskID !== identifier);
 
     this.setState({
       tasks: filteredTasks
     });
 
-    let filteredDoneTasks = currentList.filter((task) => task.id === identifier);
+    let filteredDoneTasks = currentList.filter((task) => task.TaskID === identifier);
 
     doneList.push(filteredDoneTasks[0]);
 
@@ -54,43 +65,81 @@ class App extends Component {
     });
   }
 
-  deleteEntry(identifier) {
+  async deleteEntry(identifier) {
+
+    const response = await TasksService.deleteTask(identifier);
 
     let currentList = this.state.tasks;
 
-    let filteredTasks = currentList.filter((task) => task.id !== identifier);
+    let filteredTasks = currentList.filter((task) => task.TaskID !== identifier);
 
-    this.setState({tasks: filteredTasks});
+    console.log(filteredTasks);
+
+    this.setState({
+      tasks: filteredTasks
+    });
   }
 
   deleteCompletedEntry(identifier) {
 
     let currentDoneList = this.state.doneTasks;
 
-    let filteredDoneTasks = currentDoneList.filter((task) => task.id !== identifier);
+    let filteredDoneTasks = currentDoneList.filter((task) => task.TaskID !== identifier);
 
-    this.setState({doneTasks: filteredDoneTasks});
+    this.setState({
+      doneTasks: filteredDoneTasks
+    });
   }
 
   render() {
     return (
       <div className="container">
-        <div className="row" md={{offset: 3}}>
-          <Header />
+
+        <div 
+          className="row" 
+          md={{offset: 3}}
+        >
+            <Header />
         </div>
-        <div className="row justify-content-center no-gutters">
-          <div className="col-4">
-            <InputBox onSumbitEntryHandler={this.addEntry}/>
+
+        <div 
+          className="row justify-content-center no-gutters"
+        >
+          <div 
+            className="col-4"
+          >
+              <InputBox 
+                onSumbitEntryHandler={this.addEntry}
+              />
           </div>
         </div>
-        <div className="row">
-          <TaskCounter tasks={this.state.tasks} doneTasks={this.state.doneTasks} />
+
+        <div 
+          className="row"
+        >
+            <TaskCounter 
+              tasks={this.state.tasks} 
+              doneTasks={this.state.doneTasks} 
+            />
         </div>
-        <div className="row">
-          <TaskList tasks={this.state.tasks} doneEntryHandler={this.markAsDone} deleteEntryHandler={this.deleteEntry} />
+
+        <div 
+          className="row"
+        >
+            <TaskList 
+              tasks={this.state.tasks} 
+              doneEntryHandler={this.markAsDone} 
+              deleteEntryHandler={this.deleteEntry} 
+            />
         </div>
-        <div className="row">
-          <DoneTaskList doneTasks={this.state.doneTasks} deleteCompletedEntryHandler={this.deleteCompletedEntry} />
+
+        <div 
+          className="row"
+        >
+            <DoneTaskList 
+              doneTasks={this.state.doneTasks} 
+              deleteCompletedEntryHandler={this.deleteCompletedEntry} 
+            />
         </div>
       </div>
     );

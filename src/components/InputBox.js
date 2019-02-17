@@ -18,9 +18,8 @@ class InputBox extends React.Component {
     onSubmitClicked () {
 
         const entryToBeAdded = {
-            id: (Math.random() *100),
-            description: this.state.entryName,
-            completed: false
+            Description: this.state.entryName,
+            Completed: false
         };
 
         this.props.onSumbitEntryHandler(entryToBeAdded);
