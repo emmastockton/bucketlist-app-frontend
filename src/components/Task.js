@@ -5,8 +5,14 @@ class Task extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            editText: props.text,
+            editing: false
+        };
+
         this.onDeleteClicked = this.onDeleteClicked.bind(this);
         this.onDoneClicked = this.onDoneClicked.bind(this);
+        this.onEditClicked = this.onEditClicked.bind(this);
     }
 
     onDeleteClicked () {
@@ -19,14 +25,45 @@ class Task extends React.Component {
         this.props.doneEntryHandler(this.props.idOfEntry);
     }
 
+    onEditClicked () {
+
+        this.props.editEntryHandler(this.props.idOfEntry);
+    }
+
+    handleEdit (text) {
+        return (text) => this.setState({
+          editing: !this.state.editing
+        });
+    }  
+      
+    handleChange (text) {
+        this.setState({editText: text.target.value});
+    }
+      
+    handleSubmit (text) {
+        var val = this.state.editText.trim();
+        if (val) {
+            this.setState({
+              editText: val,
+              editing: false,
+            });
+        } 
+    }
+
     render() {
         return (
             <div className="containter">
                 <div className="row justify-content-md-center">
                     <div className="col-2 text-right">
-                        {this.props.nameOfTask}
+                    <label className={this.state.editing ? 'hidden' : ''} onDoubleClick={this.handleEdit()}>{this.state.editText}</label>
+                        <input 
+                        className={this.state.editing ? '' : 'hidden'} 
+                        value={this.props.nameOfTask}
+                        onChange={this.handleChange.bind(this)} 
+                        onBlur={this.handleSubmit.bind(this)}
+                        />
                     </div>
-                    <div className="col-2 text-right">
+                    <div className="col-1 text-right">
                         <input 
                             className="btn btn-success" 
                             type="button" 
@@ -34,7 +71,15 @@ class Task extends React.Component {
                             onClick={this.onDoneClicked}
                         />
                     </div>
-                    <div className="col-2 text-left">
+                    <div className="col-1 text-right">
+                        <input 
+                            className="btn btn-warning" 
+                            type="button" 
+                            value="Edit" 
+                            onClick={this.onEditClicked}
+                        />
+                    </div>
+                    <div className="col-1 text-left">
                         <input 
                             className="deleteButton btn btn-danger" 
                             type="button" 
@@ -47,8 +92,7 @@ class Task extends React.Component {
                 </div>
             </div>
         );
-    }
-
+        }
 }
 
 const styles = {

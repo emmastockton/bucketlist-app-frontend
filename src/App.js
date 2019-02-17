@@ -19,6 +19,7 @@ class App extends Component {
     this.addEntry = this.addEntry.bind(this);
     this.deleteEntry = this.deleteEntry.bind(this);
     this.markAsDone = this.markAsDone.bind(this);
+    this.editEntry = this.editEntry.bind(this);
     this.deleteCompletedEntry = this.deleteCompletedEntry.bind(this);
 
   }
@@ -70,6 +71,19 @@ class App extends Component {
     });
   }
 
+  async editEntry(identifier, editedDescription) {
+
+    const response = await TasksService.editTask(identifier, editedDescription);
+
+    let currentList = this.state.tasks;
+
+    let filteredTasks = currentList.filter((task) => task.TaskID !== identifier);
+
+    this.setState({
+      tasks: filteredTasks
+    });
+  }
+
   async deleteEntry(identifier) {
 
     const response = await TasksService.deleteTask(identifier);
@@ -83,7 +97,9 @@ class App extends Component {
     });
   }
 
-  deleteCompletedEntry(identifier) {
+  async deleteCompletedEntry(identifier) {
+
+    const response = await TasksService.deleteTask(identifier);
 
     let currentDoneList = this.state.doneTasks;
 
@@ -131,7 +147,8 @@ class App extends Component {
         >
             <TaskList 
               tasks={this.state.tasks} 
-              doneEntryHandler={this.markAsDone} 
+              doneEntryHandler={this.markAsDone}
+              editEntryHandler={this.editEntry} 
               deleteEntryHandler={this.deleteEntry} 
             />
         </div>
