@@ -148,8 +148,8 @@ class App extends Component {
             <TaskList 
               tasks={this.state.tasks} 
               doneEntryHandler={this.markAsDone}
-              editEntryHandler={this.editEntry} 
-              deleteEntryHandler={this.deleteEntry} 
+              deleteEntryHandler={this.deleteEntry}
+              onUpdateEntryHandler={this.editEntry} 
             />
         </div>
 

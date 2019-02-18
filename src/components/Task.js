@@ -7,13 +7,13 @@ class Task extends React.Component {
 
         this.state = {
             isEditing: false,
-            tasks: this.props.tasks,
-            TaskDescription: ""
+            newDescription: ""
         };
 
         this.onDeleteClicked = this.onDeleteClicked.bind(this);
         this.onDoneClicked = this.onDoneClicked.bind(this);
-        this.onEditClicked = this.onEditClicked.bind(this);
+        this.onEditFieldUpdated = this.onEditFieldUpdated.bind(this);
+        this.onUpdateClicked = this.onUpdateClicked.bind(this);
         this.toggleEdit = this.toggleEdit.bind(this);
     }
 
@@ -27,9 +27,20 @@ class Task extends React.Component {
         this.props.doneEntryHandler(this.props.idOfEntry);
     }
 
-    onEditClicked () {
+    onEditFieldUpdated (event) {
 
-        this.props.editEntryHandler(this.props.idOfEntry);
+        const TaskDescription = event.target.value;
+
+        this.setState({
+            newDescription: TaskDescription
+        });
+
+       console.log(newDescription);
+    }
+
+    onUpdateClicked () {
+
+        
     }
 
     toggleEdit() {
@@ -41,14 +52,21 @@ class Task extends React.Component {
         if (this.state.isEditing) {
             return (
             <div className="container">
-            <div className="col-4 text-right" contentEditable="true">
-              This should be editable
+            <div className="col-4 text-right">
+                <input
+                    className="form-control"
+                    type="text"
+                    contentEditable="true"
+                    placeholder={this.props.nameOfTask}
+                    onChange={this.onEditFieldUpdated}
+                />   
             </div>
             <div className="col-1 text-right">
                 <input
                     className="btn btn-info" 
                     type="button" 
                     value="Update" 
+                    onClick={this.onUpdateClicked}
                 />
             </div>
             </div>

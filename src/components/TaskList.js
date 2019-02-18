@@ -13,10 +13,11 @@ class TaskList extends React.Component {
                     <Task 
                         nameOfTask={task.Description} 
                         key={i} 
-                        idOfEntry={task.TaskID} 
+                        idOfEntry={task.TaskID}
                         deleteEntryHandler = {this.props.deleteEntryHandler}
                         doneEntryHandler = {this.props.doneEntryHandler}
                         editEntryHandler = {this.props.editEntryHandler}
+                        onUpdateClicked = {this.props.onUpdateEntryHandler}
                     />
                 )
             }
