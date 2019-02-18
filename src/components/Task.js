@@ -6,13 +6,15 @@ class Task extends React.Component {
         super(props);
 
         this.state = {
-            editText: props.text,
-            editing: false
+            isEditing: false,
+            tasks: this.props.tasks,
+            TaskDescription: ""
         };
 
         this.onDeleteClicked = this.onDeleteClicked.bind(this);
         this.onDoneClicked = this.onDoneClicked.bind(this);
         this.onEditClicked = this.onEditClicked.bind(this);
+        this.toggleEdit = this.toggleEdit.bind(this);
     }
 
     onDeleteClicked () {
@@ -30,38 +32,33 @@ class Task extends React.Component {
         this.props.editEntryHandler(this.props.idOfEntry);
     }
 
-    handleEdit (text) {
-        return (text) => this.setState({
-          editing: !this.state.editing
-        });
-    }  
-      
-    handleChange (text) {
-        this.setState({editText: text.target.value});
-    }
-      
-    handleSubmit (text) {
-        var val = this.state.editText.trim();
-        if (val) {
-            this.setState({
-              editText: val,
-              editing: false,
-            });
-        } 
+    toggleEdit() {
+
+        this.setState({isEditing: !this.state.isEditing})
     }
 
     render() {
+        if (this.state.isEditing) {
+            return (
+            <div className="container">
+            <div className="col-4 text-right" contentEditable="true">
+              This should be editable
+            </div>
+            <div className="col-1 text-right">
+                <input
+                    className="btn btn-info" 
+                    type="button" 
+                    value="Update" 
+                />
+            </div>
+            </div>
+            )
+          }
         return (
             <div className="containter">
                 <div className="row justify-content-md-center">
                     <div className="col-2 text-right">
-                    <label className={this.state.editing ? 'hidden' : ''} onDoubleClick={this.handleEdit()}>{this.state.editText}</label>
-                        <input 
-                        className={this.state.editing ? '' : 'hidden'} 
-                        value={this.props.nameOfTask}
-                        onChange={this.handleChange.bind(this)} 
-                        onBlur={this.handleSubmit.bind(this)}
-                        />
+                        {this.props.nameOfTask}
                     </div>
                     <div className="col-1 text-right">
                         <input 
@@ -76,7 +73,7 @@ class Task extends React.Component {
                             className="btn btn-warning" 
                             type="button" 
                             value="Edit" 
-                            onClick={this.onEditClicked}
+                            onClick={this.toggleEdit}
                         />
                     </div>
                     <div className="col-1 text-left">
@@ -92,7 +89,7 @@ class Task extends React.Component {
                 </div>
             </div>
         );
-        }
+    }
 }
 
 const styles = {
