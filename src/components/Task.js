@@ -34,18 +34,29 @@ class Task extends React.Component {
         this.setState({
             newDescription: TaskDescription
         });
-
-       console.log(newDescription);
     }
 
     onUpdateClicked () {
 
-        
+        const entryToBeUpdated = {
+            Description: this.state.newDescription,
+            Completed: false
+        };
+
+        this.props.onUpdateEntryHandler(this.props.idOfEntry, entryToBeUpdated);
+
+        this.setState({
+            newDescription: ""
+        });
+
     }
 
     toggleEdit() {
 
-        this.setState({isEditing: !this.state.isEditing})
+        this.setState(
+            {
+                isEditing: !this.state.isEditing
+            });
     }
 
     render() {

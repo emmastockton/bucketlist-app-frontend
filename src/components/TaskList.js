@@ -17,7 +17,7 @@ class TaskList extends React.Component {
                         deleteEntryHandler = {this.props.deleteEntryHandler}
                         doneEntryHandler = {this.props.doneEntryHandler}
                         editEntryHandler = {this.props.editEntryHandler}
-                        onUpdateClicked = {this.props.onUpdateEntryHandler}
+                        onUpdateEntryHandler = {this.props.onUpdateEntryHandler}
                     />
                 )
             }

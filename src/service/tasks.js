@@ -24,11 +24,6 @@ const TasksService = {
         let res = await axios.put("https://u9uoyeerq6.execute-api.eu-west-2.amazonaws.com/dev/tasks/" + taskId);
         let dataReceived = await res.data;
         return dataReceived;
-    },
-    async editTask(taskId, editedDescription) {
-        let res = await axios.put("https://u9uoyeerq6.execute-api.eu-west-2.amazonaws.com/dev/tasks/editTask" + taskId, editedDescription);
-        let dataReceived = await res.data;
-        return dataReceived;
     }
  };
  

@@ -71,13 +71,13 @@ class App extends Component {
     });
   }
 
-  async editEntry(identifier, editedDescription) {
-
-    const response = await TasksService.editTask(identifier, editedDescription);
+  editEntry(identifier, entryToBeUpdated) {
 
     let currentList = this.state.tasks;
 
     let filteredTasks = currentList.filter((task) => task.TaskID !== identifier);
+
+    filteredTasks.push(entryToBeUpdated);
 
     this.setState({
       tasks: filteredTasks
