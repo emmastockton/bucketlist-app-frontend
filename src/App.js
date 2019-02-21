@@ -77,9 +77,9 @@ class App extends Component {
 
     let filteredTasks = currentList.filter((task) => task.TaskID !== identifier);
 
-    console.log(filteredTasks);
+    filteredTasks.unshift(entryToBeUpdated);
 
-    filteredTasks.push(entryToBeUpdated);
+    //filteredTasks.push(entryToBeUpdated);
 
     this.setState({
       tasks: filteredTasks

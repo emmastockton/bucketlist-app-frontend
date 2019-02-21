@@ -67,6 +67,7 @@ class Task extends React.Component {
         if (this.state.isEditing) {
             return (
             <div className="container">
+            <div className="row justify-content-md-center">
             <div className="col-4 text-right">
                 <input
                     className="form-control"
@@ -84,6 +85,9 @@ class Task extends React.Component {
                     onClick={this.onUpdateClicked}
                 />
             </div>
+            </div>
+                <div style={styles.dottyBorder}>
+                </div>
             </div>
             )
           }
