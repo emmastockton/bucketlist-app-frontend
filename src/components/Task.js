@@ -38,6 +38,8 @@ class Task extends React.Component {
 
     onUpdateClicked () {
 
+        //need to ensure update can't be done if nothing has been entered in input box
+
         const entryToBeUpdated = {
             Description: this.state.newDescription,
             Completed: false

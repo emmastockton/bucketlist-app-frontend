@@ -79,8 +79,6 @@ class App extends Component {
 
     filteredTasks.unshift(entryToBeUpdated);
 
-    //filteredTasks.push(entryToBeUpdated);
-
     this.setState({
       tasks: filteredTasks
     });
