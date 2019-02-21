@@ -49,6 +49,10 @@ class Task extends React.Component {
             newDescription: ""
         });
 
+        this.setState({
+            isEditing: false
+        });
+
     }
 
     toggleEdit() {
